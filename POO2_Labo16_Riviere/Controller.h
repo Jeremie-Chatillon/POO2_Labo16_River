@@ -106,8 +106,7 @@ private:
      */
     void commandMoveContainer(Person* p, Container* from, Container* to);
     
-    
-
+   
     void handleMoveBoat();
     
     void checkAndMove(Bank* b);

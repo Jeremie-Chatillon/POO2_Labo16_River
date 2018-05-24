@@ -34,9 +34,11 @@ public:
     
     bool operator ==(const Role& r) const;
     
-private:
+protected:
     Role();
     Role(bool _canDrive);   
+
+private:
     bool _canDrive;
 };
 #endif /* ROLE_H */

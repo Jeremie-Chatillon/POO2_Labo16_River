@@ -154,7 +154,7 @@ void Controller::handleCommand(const std::string& s) {
     }
 }
 
-void Controller::handleMovePerson(const std::string& s, void(*fptr)(Person*)) {
+void Controller::handleMovePerson(const std::string& s, void(Controller::*fptr)(Person*)) {
 
     if (s.length() <= 2) {
         std::cout << "Erreur: Entrez une personne: " << s << std::endl;
