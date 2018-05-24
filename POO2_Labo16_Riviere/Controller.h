@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
- * File:   Controller.h
- * Author: Jeremie
- *
- * Created on 27. avril 2018, 07:53
+ * POO2:   Labo16 Rivières
+ * File:   Controlleur.cpp
+ * Author: Jeremie & James
+ * 
+ * Created on 27. avril 2018, 12:52
  */
 
 #define R_POLICIER  0;
@@ -100,54 +95,101 @@ private:
     
     /**
      * Permet de déplcaer une personne d'un container à un autre en checkant les règles
-     * @param p 
-     * @param from
-     * @param to
+     * @param p     Presonne à déplacer
+     * @param from  Contener d'origine
+     * @param to    Conterner de destination
      */
     void commandMoveContainer(Person* p, Container* from, Container* to);
     
-   
+   /**
+    * Change la référence de rive du bateau si il passe les conditions
+    */
     void handleMoveBoat();
     
+    /**
+     * Contrôle qu'il y ait un conducteur sur le bateau et le déplace sur la berge
+     * @param b Berge de destination du bateau
+     */
     void checkAndMove(Bank* b);
     
+    /**
+     * Trouve une personne en fonction de leur nom
+     * @param s nom de la personne
+     * @return la personne
+     */
     Person* findPersonByName(const std::string& s) const;
     
-
+    /**
+     * Vide les container bèreges et bateau
+     */
     void clearConterner();
+    
+    /**
+     * Place toutes les persone sur la berge
+     * @param b berge des naufragés
+     */
     void init(Bank* b);
     
 protected:
+    /**
+     * Contrôles les règles si le voleur peut se déplacer
+     * @param from  Contener d'origine
+     * @param to    Conterner de destination
+     * @return      true si il peut se dépéacer, sinon false
+     */
     bool checkVoleurRule(Container* from, Container* to);
     
     bool checkPolicerRule(Container* from);
 
+
     /**
-     * Règle s'appliquant aux fils
-     * @param to
-     * @param s         sex avec lequelle il ne doit pas être
-     * @return 
+     * Check les règles pour les enfants. Comme il y a les filles et les garçon,
+     *  il y a une méthode qui gère les deux, c'est pourquoi on doit psaser un 
+     *  sex avec lequelle ils ne peuvent pas être et lequelle ils peuvent être
+     * @param to    container de destination
+     * @param sOk   Sex avec lequelle il peut être
+     * @param sKo   Sex avec lequelle il ne peut pas être
+     * @return      true si il peut se dépéacer, sinon false
      */
     bool checkChildRule(Container* to, const Sex& sOk, const Sex& sKo);
     
+    /**
+     * Contrôles les règles si le père peut se déplacer
+     * @param from  Contener d'origine
+     * @param to    Conterner de destination
+     * @return      true si il peut se dépéacer, sinon false
+     */
     bool checkFaterRule(Container* from, Container* to);
     
+    /**
+     * Contrôles les règles si la mère peut se déplacer
+     * @param from  Contener d'origine
+     * @param to    Conterner de destination
+     * @return      true si elle peut se dépéacer, sinon false
+     */
     bool checkMotherRule(Container* from, Container* to);
     
+    /**
+     * Regle global pour la famille. Elle ne peut pas se déplacer si le voleur est seul
+     * @param to container de destination
+     * @return      true si elle peut se dépéacer, sinon false
+     */
     bool checkFamilyRules(Container* to);
     
 private:
+    // AFFICHAGE //
     static const size_t SIZE_RIVER = 60;
     static const char CHAR_RIVER = '=';
     static const char CHAR_BANK = '-';
     
-
+    // Liste de toutes les personnes dans le jeux
     std::list<Person*> persons;
     
     // Containers
     Boat* boat;
     Bank* banks[COUNT_BANK];
     
+    // Nombre de tours
     size_t _turn;
     
     bool _continue;     // Continuer à jouer  

@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
+ * POO2:   Labo16 Rivières
  * File:   Role.cpp
- * Author: Jeremie
+ * Author: Jeremie & James
  * 
- * Created on 27. avril 2018, 12:24
+ * Created on 27. avril 2018, 12:52
  */
-
 #include "Role.h"
 
 const Role Role::POLICIER(true);
