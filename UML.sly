@@ -13,7 +13,7 @@
       <role componentId="21921" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
-          <max>1</max>
+          <max>2147483647</max>
         </multiplicity>
       </role>
       <role componentId="21922" name="" visibility="PRIVATE">
@@ -94,8 +94,8 @@
       </role>
     </association>
     <entity entityType="CLASS" id="21921" isAbstract="false" name="Person" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="sex" type="Sex" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="name" type="string" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="sex" type="Sex" visibility="PRIVATE"/>
       <method isAbstract="false" isStatic="false" name="canDrive" returnType="bool" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="getName" returnType="string" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="getRole" returnType="Role" view="DEFAULT" visibility="PUBLIC"/>
@@ -107,6 +107,9 @@
       <attribute const="false" defaultValue="" isStatic="true" name="ADULTE" type="Role" visibility="PUBLIC"/>
       <attribute const="false" defaultValue="" isStatic="true" name="ENFANT" type="Role" visibility="PUBLIC"/>
       <attribute const="false" defaultValue="" isStatic="false" name="_canDrive" type="bool" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="operator==" returnType="bool" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="r" type="Role&amp;"/>
+      </method>
     </entity>
     <entity entityType="CLASS" id="21932" isAbstract="false" name="Controller" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="true" name="SIZE_RIVER" type="size_t" visibility="PRIVATE"/>
@@ -114,40 +117,41 @@
       <attribute const="false" defaultValue="" isStatic="true" name="CHAR_BANK" type="char" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="_turn" type="size_t" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="_continue" type="bool" visibility="PRIVATE"/>
-      <method isAbstract="false" isStatic="false" name="drawMenu" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="drawRiver" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="drawLine" returnType="void" view="DEFAULT" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="play" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="drawMenu" returnType="void" view="DEFAULT" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="drawRiver" returnType="void" view="DEFAULT" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="drawLine" returnType="void" view="DEFAULT" visibility="PRIVATE">
         <variable const="false" name="c" type="char"/>
         <variable const="false" name="nbChar" type="size_t"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="askCommand" returnType="string" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="handleCommand" returnType="void" view="DEFAULT" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="askCommand" returnType="string" view="DEFAULT" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="handleCommand" returnType="void" view="DEFAULT" visibility="PRIVATE">
         <variable const="false" name="s" type="string"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="handleMovePerson" returnType="void" view="DEFAULT" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="handleMovePerson" returnType="void" view="DEFAULT" visibility="PRIVATE">
         <variable const="false" name="s" type="string"/>
         <variable const="false" name="fptr" type="void(Person*)"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="commandEmbark" returnType="void" view="DEFAULT" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="commandEmbark" returnType="void" view="DEFAULT" visibility="PRIVATE">
         <variable const="false" name="p" type="Person*"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="commandDebark" returnType="void" view="DEFAULT" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="commandDebark" returnType="void" view="DEFAULT" visibility="PRIVATE">
         <variable const="false" name="p" type="Person*"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="commandMoveContainer" returnType="void" view="DEFAULT" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="commandMoveContainer" returnType="void" view="DEFAULT" visibility="PRIVATE">
         <variable const="false" name="p" type="Person*"/>
         <variable const="false" name="from" type="Container*"/>
         <variable const="false" name="to" type="Container*"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="handleMoveBoat" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="checkAndMove" returnType="void" view="DEFAULT" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="handleMoveBoat" returnType="void" view="DEFAULT" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="checkAndMove" returnType="void" view="DEFAULT" visibility="PRIVATE">
         <variable const="false" name="b" type="Bank*"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="findPersonByName" returnType="Person*" view="DEFAULT" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="findPersonByName" returnType="Person*" view="DEFAULT" visibility="PRIVATE">
         <variable const="false" name="s" type="string"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="clearConterner" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="init" returnType="void" view="DEFAULT" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="clearConterner" returnType="void" view="DEFAULT" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="init" returnType="void" view="DEFAULT" visibility="PRIVATE">
         <variable const="false" name="b" type="Bank*"/>
       </method>
       <method isAbstract="false" isStatic="false" name="checkVoleurRule" returnType="bool" view="DEFAULT" visibility="PROTECTED">
@@ -198,6 +202,7 @@
       <method isAbstract="false" isStatic="false" name="size" returnType="size_t" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
     <entity entityType="CLASS" id="21993" isAbstract="false" name="Boat" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="CAPACITY" type="size_t" visibility="PRIVATE"/>
       <method isAbstract="false" isStatic="false" name="draw" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="getBank" returnType="Bank*" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="move" returnType="void" view="DEFAULT" visibility="PUBLIC">
@@ -206,6 +211,7 @@
       <method isAbstract="false" isStatic="false" name="setBank" returnType="void" view="DEFAULT" visibility="PUBLIC">
         <variable const="false" name="bank" type="Bank*"/>
       </method>
+      <method isAbstract="false" isStatic="false" name="getCapacity" returnType="size_t" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
     <entity entityType="CLASS" id="21994" isAbstract="false" name="Bank" visibility="PUBLIC"/>
   </diagramElements>
@@ -222,7 +228,7 @@
         </point>
         <point>
           <x>151</x>
-          <y>541</y>
+          <y>569</y>
         </point>
       </line>
       <labelAssociation>
@@ -239,7 +245,7 @@
       </roleAssociation>
       <roleAssociation>
         <x>155</x>
-        <y>545</y>
+        <y>573</y>
         <w>0</w>
         <h>18</h>
       </roleAssociation>
@@ -251,7 +257,7 @@
       </multipliciteAssociation>
       <multipliciteAssociation>
         <x>126</x>
-        <y>546</y>
+        <y>574</y>
         <w>8</w>
         <h>18</h>
       </multipliciteAssociation>
@@ -456,7 +462,7 @@
       <multipliciteAssociation>
         <x>605</x>
         <y>158</y>
-        <w>8</w>
+        <w>22</w>
         <h>18</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
@@ -519,7 +525,7 @@
         <x>0</x>
         <y>430</y>
         <w>200</w>
-        <h>110</h>
+        <h>138</h>
       </geometry>
     </componentView>
     <componentView color="-2079" componentID="21972" displayAttributes="true" displayDefault="true" displayMethods="true">
@@ -535,7 +541,7 @@
         <x>360</x>
         <y>590</y>
         <w>500</w>
-        <h>404</h>
+        <h>418</h>
       </geometry>
     </componentView>
     <componentView color="-2079" componentID="21922" displayAttributes="true" displayDefault="true" displayMethods="true">
@@ -543,7 +549,7 @@
         <x>730</x>
         <y>160</y>
         <w>150</w>
-        <h>124</h>
+        <h>138</h>
       </geometry>
     </componentView>
     <componentView color="-2079" componentID="21921" displayAttributes="true" displayDefault="true" displayMethods="true">
