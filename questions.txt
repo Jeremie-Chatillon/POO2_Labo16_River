@@ -1,0 +1,6 @@
+POO2_Labo16_Riveres: Question
+
+1) Est-ce que "voleur/policier/pere/mere" correspond au nom ou c'est le nom du rôle qu'ils ont?
+2) Est-ce que c'est mieux de faire une addition plutot que de faire un (conducteur + p.role().canConduct() ou (conducteur += p.role().canConduct() ? 1 : 0;)
+3) Est-ce que l'optimisation est importante( pour débarquer on regarde 2 fois la liste
+4) Est-ce qu'on peut faire une liste pour les éléments dans le nombre est connu(par exemple les rôle)
