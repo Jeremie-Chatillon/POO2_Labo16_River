@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
- * File:   Container.cpp
- * Author: Jeremie
+ * POO2:   Labo16 Rivières
+ * File:   Conatainer.cpp
+ * Author: Jeremie & James
  * 
- * Created on 27. avril 2018, 08:10
+ * Created on 27. avril 2018, 12:52
  */
-
 #include "Container.h"
 
 Container::Container(const std::string& name) 

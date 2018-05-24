@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
- * File:   Person.cpp
- * Author: Jeremie
+ * POO2:   Labo16 Rivières
+ * File:   Container.cpp
+ * Author: Jeremie & James
  * 
- * Created on 27. avril 2018, 07:44
+ * Created on 27. avril 2018, 12:52
  */
 
 #include "Person.h"
