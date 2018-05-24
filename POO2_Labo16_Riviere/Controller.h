@@ -23,7 +23,6 @@
 #include <iostream>
 #include <cstring>
 #include <list>
-#include <exception>
 
 #include "Container.h"
 #include "Bank.h"
@@ -111,12 +110,11 @@ public:
         if(c == COMMAND_DEBARQUER){
             handleMovePerson(s, &Controller::commandDebark);
             return;
+            
         } else if(c == COMMAND_EMBARQUER){
-            handleMovePerson(s, &Controller::commandEmbark);
-            
-            //handleMovePerson(s, commandEmabark);
-            
+            handleMovePerson(s, &Controller::commandEmbark);            
             return;
+            
         } else if(s.size() == 1){         // Toutes les commandes sauf Embarquer/Debarquer doivent avoir 1 seul caractère
             switch(c){
                 case COMMAND_AFFICHER:

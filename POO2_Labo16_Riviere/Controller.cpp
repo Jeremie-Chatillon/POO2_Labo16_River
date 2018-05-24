@@ -20,15 +20,14 @@
 Controller::Controller() {
 
     commands = {COMMAND_AFFICHER, COMMAND_DEBARQUER, COMMAND_DEPLACER, COMMAND_EMBARQUER, COMMAND_MENU, COMMAND_QUITTER, COMMAND_REINITIALISER};
-    persons.push_back(new Person("policier", Role::POLICIER, Sex::HOMME));
     
+    persons.push_back(new Person("policier", Role::POLICIER, Sex::HOMME));
+    persons.push_back(new Person("voleur", Role::VOLEUR, Sex::HOMME));
 
     persons.push_back(new Person("paul", Role::ENFANT, Sex::HOMME));
     persons.push_back(new Person("pierre", Role::ENFANT, Sex::HOMME));
     persons.push_back(new Person("julie", Role::ENFANT, Sex::FEMME));
     persons.push_back(new Person("jeanne", Role::ENFANT, Sex::FEMME));
-   
-    persons.push_back(new Person("voleur", Role::VOLEUR, Sex::HOMME));
    
     persons.push_back(new Person("pere", Role::ADULTE, Sex::HOMME));
     persons.push_back(new Person("mere", Role::ADULTE, Sex::FEMME));
@@ -41,15 +40,14 @@ Controller::Controller() {
     init(banks[0]);
     
 }
-/*
-Controller::Controller(const Controller& orig) {
-    
-}
-*/
+
 Controller::~Controller() {
     delete boat;
     for(int i = 0; i < COUNT_BANK; ++i){
         delete banks[i];
     }
+    
+    for(Person* p: persons)
+        delete p;
 }
 
