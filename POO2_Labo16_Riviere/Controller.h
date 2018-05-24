@@ -109,10 +109,10 @@ public:
         }
         
         if(c == COMMAND_DEBARQUER){
-            handleMovePerson(s, &commandDebark);
+            handleMovePerson(s, &Controller::commandDebark);
             return;
         } else if(c == COMMAND_EMBARQUER){
-            handleMovePerson(s, &commandEmbark);
+            handleMovePerson(s, &Controller::commandEmbark);
             
             //handleMovePerson(s, commandEmabark);
             
@@ -171,7 +171,7 @@ public:
     }
     
     void commandEmbark(Person * p){
-        if(boat->size() >= 2){
+        if(boat->size() >= boat->getCapacity()){
             std::cout << "Erreur: Bateau plein" << std::endl;
             return;
         } else if (!boat->getBank()->contains(p)){

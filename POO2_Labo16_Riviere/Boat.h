@@ -15,8 +15,8 @@ class Bank;
 
 class Boat : public Container {
 public:
-    Boat(){};
-    Boat(const std::string& name);
+    Boat(): CAPACITY(2){};
+    Boat(const std::string& , const size_t capacity);
     
     virtual void draw()const;
     
@@ -26,8 +26,11 @@ public:
     
     void setBank(Bank* bank);
     
+    const size_t getCapacity();
+    
 private:
     Bank* _bank;
+    const size_t CAPACITY;
 };
 
 #endif /* BOAT_H */

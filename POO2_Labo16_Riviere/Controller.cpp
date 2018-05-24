@@ -11,7 +11,7 @@
  * Created on 27. avril 2018, 08:00
  */
 
-    #include "Controller.h"
+#include "Controller.h"
 #include "Bank.h"
 #include "Boat.h"
 #include "Person.h"
@@ -33,7 +33,7 @@ Controller::Controller() {
     persons.push_back(new Person("pere", Role::ADULTE, Sex::HOMME));
     persons.push_back(new Person("mere", Role::ADULTE, Sex::FEMME));
     
-    boat = new Boat("Bateau");
+    boat = new Boat("Bateau", 2);
     
     banks[BANK_RIGHT] = new Bank("Droite");
     banks[BANK_LEFT] = new Bank("Gauche");

@@ -7,7 +7,7 @@
  */
 #include "Boat.h"
 
-Boat::Boat(const std::string& name) : Container(name), _bank(nullptr) {
+Boat::Boat(const std::string& name, const size_t capacity) : Container(name), _bank(nullptr), CAPACITY(capacity) {
 }
 
 void Boat::draw() const{
@@ -20,6 +20,11 @@ void Boat::draw() const{
 Bank* Boat::getBank() const {
     return _bank;
 }
+
+const size_t Boat::getCapacity() {
+    return CAPACITY;
+}
+
 
 
 bool Boat::move(Bank* b) {
